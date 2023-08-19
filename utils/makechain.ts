@@ -2,6 +2,9 @@ import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
 import { ConversationalRetrievalQAChain } from 'langchain/chains';
 import { CallbackManager } from "langchain/callbacks";
+import { StreamingTextResponse } from 'ai'
+
+export const runtime = 'edge'
 
 const CONDENSE_TEMPLATE = `Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
 
@@ -24,13 +27,7 @@ let streamedResponse = "";
 export const makeChain = (vectorstore: PineconeStore) => {
   const model = new ChatOpenAI({
     temperature: 0.25, // increase temepreature to get more creative answers
-    modelName: 'gpt-3.5-turbo-16k', //change this to gpt-4 if you have access
-    streaming: true,
-    callbacks: [{
-      handleLLMNewToken(token) {
-          streamedResponse += token;
-      },
-      }],
+    modelName: 'gpt-4', //change this to gpt-4 if you have access
   });
 
   const chain = ConversationalRetrievalQAChain.fromLLM(
@@ -40,7 +37,6 @@ export const makeChain = (vectorstore: PineconeStore) => {
       qaTemplate: QA_TEMPLATE,
       questionGeneratorTemplate: CONDENSE_TEMPLATE,
       returnSourceDocuments: true, //The number of source documents returned is 4 by default
-      verbose: true,
     },
   );
   return chain;
