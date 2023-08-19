@@ -1,7 +1,6 @@
 import { ChatOpenAI } from 'langchain/chat_models/openai';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
 import { ConversationalRetrievalQAChain } from 'langchain/chains';
-import { CallbackManager } from "langchain/callbacks";
 
 export const runtime = 'edge'
 
