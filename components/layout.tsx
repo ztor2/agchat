@@ -4,9 +4,9 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="mx-auto flex flex-col space-y-4">
+    <div className="mx-auto flex flex-col space-y-5">
       <header className="container sticky top-0.1 z-40 bg-white">
-        <div className="h-14 border-b border-b-slate-60 py-4">
+        <div className="h-14 border-b border-b-slate-80 py-4">
           <nav className="ml-4 pl-6">
             <a href="#" className="hover:text-slate-600 cursor-pointer font-bold">
               Main
