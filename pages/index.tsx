@@ -139,8 +139,8 @@ export default function Home() {
                         key={index}
                         src="/bot-image.ico"
                         alt="AI"
-                        width="38"
-                        height="38"
+                        width="36"
+                        height="36"
                         className={styles.boticon}
                         priority
                       />
@@ -152,8 +152,8 @@ export default function Home() {
                         key={index}
                         src="/usericon.png"
                         alt="Me"
-                        width="28"
-                        height="28"
+                        width="31"
+                        height="31"
                         className={styles.usericon}
                         priority
                       />
