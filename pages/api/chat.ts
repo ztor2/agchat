@@ -6,6 +6,7 @@ import { makeChain } from '@/utils/makechain';
 import { pinecone } from '@/utils/pinecone-client';
 import { PINECONE_INDEX_NAME, PINECONE_NAME_SPACE } from '@/config/pinecone';
 
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
@@ -57,7 +58,9 @@ export default async function handler(
       chat_history: pastMessages
     });
 
+    // console.log('response', response);
     console.log('response', response);
+    // res.status(200).json(response);
     res.status(200).json(response);
   } catch (error: any) {
     console.log('error', error);
