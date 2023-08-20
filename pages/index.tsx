@@ -124,7 +124,7 @@ export default function Home() {
     <>
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
-          <h1 className="text-3xl font-bold leading-[1.25] tracking-tighter text-center">
+          <h1 className="text-3xl font-bold leading-[1.25] tracking-tight text-center">
             AgensSQL QA Chatbot
           </h1>
           <main className={styles.main}>
