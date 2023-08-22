@@ -33,7 +33,9 @@ export default async function handler(
 
     /* create vectorstore*/
     const vectorStore = await PineconeStore.fromExistingIndex(
-      new OpenAIEmbeddings({}),
+      new OpenAIEmbeddings({
+        azureOpenAIApiDeploymentName: "text-embedding-ada-002" //remove this line if not in Azure enviroment
+      }),
       {
         pineconeIndex: index,
         textKey: 'text',
