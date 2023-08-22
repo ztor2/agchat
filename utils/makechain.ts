@@ -31,7 +31,7 @@ export const makeChain = (vectorstore: PineconeStore) => {
 
   const chain = ConversationalRetrievalQAChain.fromLLM(
     model,
-    vectorstore.asRetriever(),
+    vectorstore.asRetriever(3),
     {
       qaTemplate: QA_TEMPLATE,
       questionGeneratorTemplate: CONDENSE_TEMPLATE,
